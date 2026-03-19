@@ -1,0 +1,4 @@
+- **Concepto:** Identificación de tipos de archivos. En Linux, las extensiones no importan; lo que importa es el contenido real (Magic Bytes).
+- **Comandos clave:** `file ./*` (Analiza todos los archivos de la carpeta actual y detecta cuál es texto legible).
+- **Resolución:** Podemos usar ese comando clave y luego hacer el cat como siempre o simplemente usar `file ./* | grep "text"` (Filtra para encontrar archivos ASCII rápidamente).
+- **Pass5:** 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw

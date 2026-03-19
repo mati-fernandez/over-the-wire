@@ -1,17 +1,23 @@
-# Quartz v4
+# 🚩 OverTheWire: Writeups & Journey
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+Welcome to my personal cybersecurity laboratory. This repository contains detailed writeups and technical notes for the **OverTheWire** wargames, documented as I progress through the levels.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+---
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## 🌐 Live Portfolio
+Explore the interactive version of these notes with a full knowledge graph:
+👉 **[mi-portfolio-otw.vercel.app](https://tu-url-de-vercel.vercel.app)** 🚀
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+---
 
-## Sponsors
+## 📂 Repository Structure
+- **Bandit**: Linux fundamentals, SSH, and basic CLI security. (Level 0 → 33 ✅)
+- **Natas**: Web security, server-side vulnerabilities, and data injection. (In Progress 🛠️)
 
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+## 🛠️ Built With
+- **Obsidian**: For second-brain note-taking.
+- **Quartz**: To transform Markdown into a fast, searchable web interface.
+- **Vercel**: For automated CI/CD deployment.
+
+---
+*Created with ☕ and persistence.*

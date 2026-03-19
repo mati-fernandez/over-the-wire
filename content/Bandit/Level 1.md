@@ -1,0 +1,2 @@
+- **Concepto:** El archivo `-` se lee con `cat ./-`.
+- **Pass2:** 263JGJPfgU6LtdEvgfWU1XP5yac29mFx

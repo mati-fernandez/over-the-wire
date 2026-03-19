@@ -1,0 +1,2 @@
+- **Concepto:** Conexión SSH básica. Puerto 2220.
+- **Pass1:** ZjLjTmM6FvvyRnrb2rfNWOZOTa6ip5If

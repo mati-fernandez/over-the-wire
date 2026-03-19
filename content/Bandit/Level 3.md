@@ -1,0 +1,3 @@
+- **Concepto:** Archivos ocultos (**Dotfiles**). En sistemas Unix, cualquier archivo o carpeta que comienza con un punto `.` es invisible para un `ls` normal.
+- **Comando clave:** `ls -a` (all). El flag `-a` obliga a la terminal a mostrarlo todo, incluyendo los archivos ocultos y los directorios de navegación `.` (actual) y `..` (padre).
+- **Pass4:** 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
