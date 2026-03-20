@@ -10,13 +10,13 @@ const config: QuartzConfig = {
   configuration: {
     pageTitle: "Mati's OTW Notes",
     pageTitleSuffix: "",
-    enableSPA: false,
+    enableSPA: true,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
     locale: "en-US",
-    baseUrl: "otw.vercel.app",
+    baseUrl: "",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
