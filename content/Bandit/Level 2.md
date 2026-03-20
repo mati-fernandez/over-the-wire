@@ -1,2 +1,10 @@
-- **Concepto:** Espacios en nombres. Usar comillas o `Tab`. (Escapé los espacios con `\`)
+- **Concept:** Handling filenames with spaces. Using quotes, escaping characters, or Tab-completion.
+- **Key Commands:**
+	- `cat "spaces in this filename"` (Quoting)
+	- `cat spaces\ in\ this\ filename` (Escaping with backslashes)
+- **Walkthrough:** The password for the next level is stored in a file named `spaces in this filename`. In a shell, spaces are used to separate arguments, so `cat` would try to open four different files instead of one. To fix this, you can wrap the filename in double quotes or escape each space using a backslash (`\`). A faster way is to type the first few letters and press **Tab** to let the shell autocomplete and escape the name for you.
+- **Key Takeaways:**
+	- Understanding shell word-splitting and argument parsing.
+	- Using backslashes (`\`) as escape characters for special symbols (like spaces).
+    - Proficiency in **Tab-completion** for efficiency and error prevention.
 - **Pass3:** MNk8KNH3Usiio41PRUEoDFPqfxLPlSmx

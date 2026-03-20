@@ -1,4 +1,10 @@
-- **Concepto:** Identificación de tipos de archivos. En Linux, las extensiones no importan; lo que importa es el contenido real (Magic Bytes).
-- **Comandos clave:** `file ./*` (Analiza todos los archivos de la carpeta actual y detecta cuál es texto legible).
-- **Resolución:** Podemos usar ese comando clave y luego hacer el cat como siempre o simplemente usar `file ./* | grep "text"` (Filtra para encontrar archivos ASCII rápidamente).
+- **Concept:** File type identification. In Linux, file extensions are merely decorative; the system relies on the actual content—specifically **Magic Bytes**—to determine a file's type.
+- **Key Commands:** 
+	- `file ./*`: Analyzes all files in the current directory to detect their format (e.g., Data, ASCII text, Executable).
+	- `file ./* | grep "text"`: A faster way to filter and find human-readable ASCII files.
+- **Walkthrough:** The directory `inhere` contains several files, most of which are binary data. By running `file ./*`, you can identify the only file containing ASCII text. Once identified, use `cat <filename>` to retrieve the password.
+- **Key takeaways:**
+	- Understanding that Linux is "extension-agnostic"; it identifies files by their headers/Magic Bytes.
+    - Using the `file` utility to inspect unknown blobs of data.
+    - Combining `file` with `grep` to streamline the search process in a list of multiple files.
 - **Pass5:** 4oQYVPkxZOOEOO5pTW81FB8j8lxXGUQw
