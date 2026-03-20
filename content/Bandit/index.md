@@ -9,7 +9,7 @@ Welcome to my technical documentation for the Bandit wargame. This series focuse
 ## 📝 Level Registry
 - [[Level 0]]
 - [Level-1](./level-1.md)
-- [Level 2](level-2.md)
+- [[Level 2]]
 - [[Level-3]]
 - [[Level-4]]
 - [[Level-5]]

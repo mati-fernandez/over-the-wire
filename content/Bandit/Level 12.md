@@ -1,16 +1,16 @@
-#### Concepto
-Análisis forense de archivos y descompresión en cadena (_Matryoshka_). El desafío consiste en identificar tipos de datos binarios ocultos tras un volcado hexadecimal y múltiples algoritmos de compresión.
-#### Comandos clave
-- `mktemp -d` para crear un directorio en la carpeta `/tmp` del servidor anfitrión.
-- `xxd -r`: Para revertir el volcado hexadecimal a binario.
-- `file`: Para identificar el tipo de archivo real (ignorando la extensión).
-- `gunzip`: Para descomprimir archivos `.gz`.
-- `bzip2 -d`: Para descomprimir archivos `.bz2`.
-- `tar -xf`: Para extraer archivos de un empaquetado `.tar`.
-- `mv`: Fundamental para renombrar y añadir extensiones que los descompresores exigen.
-#### Resolución
-El proceso fue iterativo: revertí el hexadecimal con `xxd -r`, y luego usé `file` para "ver" qué había dentro. Fui pelando capas (Gzip, Bzip2, Tar) renombrando el archivo con la extensión correspondiente cada vez que `file` me indicaba un cambio de formato, hasta que el comando reportó `ASCII text`.
-#### Aprendizaje
-Aprendí que las extensiones en Linux son solo sugerencias; lo que manda es el contenido real (identificado por `file`). También reforcé el uso de `/tmp` para trabajar en entornos restringidos y la importancia de la precisión en las flags de descompresión.
+#### Concept
+Forensic file analysis and multi-layered decompression (Matryoshka). The challenge involves identifying binary data types hidden within a hex dump and multiple compression algorithms.
+#### Key Commands
+- `mktemp -d`: To create a temporary directory in the host server's `/tmp` folder.
+- `xxd -r`: To reverse a hex dump back into binary format.
+- `file`: To identify the actual file type (ignoring the extension).
+- `gunzip`: To decompress `.gz` files.
+- `bzip2 -d`: To decompress `.bz2` files.
+- `tar -xf`: To extract files from a `.tar` archive.
+- `mv`: Essential for renaming and adding the specific extensions required by decompression tools.
+#### Walkthrough
+The process was iterative: I reversed the hex dump using `xxd -r` and then used `file` to "peek" inside. I peeled back the layers (Gzip, Bzip2, Tar) by renaming the file with the appropriate extension each time `file` indicated a format change, until the command finally reported **ASCII text**.
+#### Key Takeaways
+I learned that extensions in Linux are merely suggestions; the actual content (identified by `file`) is what matters. I also reinforced the practice of using `/tmp` for working in restricted environments and the importance of precision when using decompression flags.
 #### Pass 13
 FO5dwFsc0cbaIiH0h8J2eUks2vdTDwAn
