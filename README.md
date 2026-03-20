@@ -16,8 +16,6 @@ Explore the interactive version of these notes with a full knowledge graph:
 
 ## 🛠️ Built With
 - **Obsidian**: For second-brain note-taking.
-- **Quartz**: To transform Markdown into a fast, searchable web interface.
+- **Quartz**: Static site generator for specialized documentation.
+- **Obsidian Git**: For automated version control and synchronization.
 - **Vercel**: For automated CI/CD deployment.
-
----
-*Created with ☕ and persistence.*
