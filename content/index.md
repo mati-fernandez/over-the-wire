@@ -1,5 +1,5 @@
 # Over The Wire Writeups
 ## Server
-- [[bandit/index|Bandit]]
-- [[Natas/index|Natas]]
+- [[bandit/index|bandit]]
+- [[natas/index|natas]]
 - 

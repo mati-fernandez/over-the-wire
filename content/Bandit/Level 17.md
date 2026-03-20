@@ -1,15 +1,18 @@
 #### Acceso
-Para este nivel no se utiliza una contraseña de texto, sino una **llave privada RSA** obtenida en el nivel anterior.
-- **Comando de conexión:** `ssh -i bandit17.key bandit17@bandit.labs.overthewire.org -p 2220`
-#### Concepto
-**Comparación de archivos (File Diffing)**. Identificación de cambios entre versiones de un mismo conjunto de datos. Fundamental para análisis forense o revisión de configuraciones.
-#### Comandos clave
-- `diff [archivo1] [archivo2]`: Compara archivos línea a línea.
-- `cat`: Para verificar el contenido antes de comparar.
-- `sort`: Útil si los archivos no están en el mismo orden (aunque en este nivel suelen estarlo).
-#### Resolución
-Al entrar al servidor con la llave RSA, encontré dos archivos: `passwords.old` y `passwords.new`. Utilicé `diff` para identificar qué línea había cambiado. El comando me señaló que la línea 42 fue modificada. La cadena marcada con `>` es la nueva contraseña.
-#### Aprendizaje
-Aprendí a leer la sintaxis de `diff`: el símbolo `<` representa el archivo origen y `>` el archivo destino. Esta herramienta es vital para no tener que buscar manualmente entre miles de líneas de texto similares.
+For this level, a plaintext password is not used; instead, an RSA private key obtained from the previous level is required.
+**Connection Command:**
+```bash
+ssh -i bandit17.key bandit17@bandit.labs.overthewire.org -p 2220
+```
+#### Concept
+File Diffing. Identifying changes between versions of the same dataset. This is fundamental for forensic analysis or configuration auditing.
+#### Key Commands
+- **`diff [file1] [file2]`:** Compares files line by line.
+- **`cat`:** To verify the content before comparing.
+- **`sort`:** Useful if the files are not in the same order (though they usually are in this level).
+#### Walkthrough
+Upon entering the server with the RSA key, I found two files: `passwords.old` and `passwords.new`. I used `diff` to identify which line had changed. The command pointed out that line 42 had been modified. The string marked with `>` is the new password.
+#### Key Takeaways
+I learned to read the `diff` syntax: the `<` symbol represents the source file and `>` represents the destination file. This tool is vital to avoid searching manually through thousands of lines of similar text.
 #### Pass 
 x2gLTTjFwMOhQ8oWNbMN362QKxfRqGlO
