@@ -1,7 +1,7 @@
 #### Concept
 **Insecure Cronjob Execution:** Privilege escalation by exploiting automatic script execution in directories with write permissions for lower-level users.
 #### Comandos clave
-[[Informática/Ciberseguridad/OverTheWire/content/Bandit-tmp/Bash Scripting#Analizando script del Level 23 de Over The Wire|Breakdown of the script found]]
+[[Informática/Ciberseguridad/OverTheWire/content/Bandit/Bash Scripting#Analizando script del Level 23 de Over The Wire|Breakdown of the script found]]
 - **`mkdir /tmp/name`**: Creates a temporary directory.
 - **`nano script.sh`**: Simple text editor to write the attack code.
 - **`chmod 777`**: Grants full permissions (read, write, execute) so the `bandit24` process doesn't fail when accessing or writing.
