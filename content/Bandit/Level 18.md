@@ -1,11 +1,10 @@
-#### Concepto
-**SSH Non-interactive Shell / Command Execution**. Evasión de scripts de inicio (`.bashrc` / `.profile`) que fuerzan el cierre de sesión.
-#### Comandos clave
-`ssh [user]@[host] "[command]"`: Ejecuta un comando remoto sin iniciar una sesión interactiva.
-#### Resolución
-El servidor de `bandit18` cerraba la conexión inmediatamente al intentar un login normal ("Bye bye!"). Para evadir esto, utilicé SSH para ejecutar directamente el comando `cat readme` desde mi terminal local. Al no solicitar una shell interactiva, el script de "auto-exit" no llegó a bloquear mi lectura del archivo.
-#### Aprendizaje
-Aprendí que SSH no es solo para "entrar" a una computadora remota, sino que sirve como un túnel para ejecutar instrucciones aisladas. Esto es fundamental para la automatización de servidores y para saltarse restricciones de shell.
-SSH tiene dos modos: **Interactivo** (te da una terminal para escribir) y **No interactivo** (ejecuta un comando, te devuelve el texto y corta). Al poner un comando entre comillas al final, SSH asume que solo querés el resultado de esa instrucción y se salta la carga completa de la "shell" que te estaba echando con el "Bye bye".
+#### Concept
+SSH Non-interactive Shell / Command Execution. Bypassing startup scripts (`.bashrc` / `.profile`) that force a logout.
+#### Key Commands
+`ssh [user]@[host] "[command]"`: Executes a remote command without starting an interactive session.
+#### Walkthrough
+The bandit18 server was immediately closing the connection upon a normal login attempt ("Bye bye!"). To bypass this, I used SSH to directly execute the cat readme command from my local terminal. By not requesting an interactive shell, the "auto-exit" script was not triggered, allowing me to read the file.
+#### Key Takeaways
+I learned that SSH is not just for "entering" a remote computer; it serves as a tunnel to execute isolated instructions. This is fundamental for server automation and bypassing shell restrictions. SSH has two modes: **Interactive** (provides a terminal to type in) and **Non-interactive** (executes a command, returns the text, and disconnects). By putting a command in quotes at the end, SSH assumes you only want the result of that instruction and skips the full "shell" loading that was kicking me out.
 #### Pass 19
 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
