@@ -1,5 +1,5 @@
 # Over The Wire Writeups
 ## Server
-- [[TMP_bandit/index|bandit]]
+- [[Informática/Ciberseguridad/OverTheWire/content/bandit/index|bandit]]
 - [[natas/index|natas]]
 - 
