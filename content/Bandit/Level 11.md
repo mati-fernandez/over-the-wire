@@ -1,15 +1,17 @@
-#### Concepto
-Cifrado por sustitución (ROT13).
-#### Comandos clave
+#### Concept
+Substitution cipher (ROT13).
+#### Key Commands
 `tr` (Translate).
-#### Resolución
- `cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'`
-Para resolver este nivel, utilicé el comando `tr` (translate) para aplicar un descifrado **ROT13**. Dado que `tr` no entiende de rotaciones matemáticas, le proporcioné dos conjuntos de caracteres para realizar un mapeo directo:
-1. **Conjunto de búsqueda (`'A-Za-z'`):** Representa el alfabeto estándar completo.
-2. **Conjunto de reemplazo (`'N-ZA-Mn-za-m'`):** Define el nuevo orden. Al escribir `N-ZA-M`, le indico a la herramienta que el rango debe "dar la vuelta": comienza en **N**, llega hasta la **Z** y continúa inmediatamente desde la **A** hasta la **M**.
-De esta forma, cada letra del archivo `data.txt` fue sustituida por su par correspondiente 13 posiciones adelante, revelando la contraseña en texto plano.
-#### Aprendizaje
-Cómo mapear rangos de caracteres para desplazar el alfabeto. Entendí que ROT13 es reversible con el mismo comando.
+#### Walkthrough
+```bash
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
+To solve this level, I used the `tr` (translate) command to apply a ROT13 decryption. Since `tr` doesn't understand mathematical rotations, I provided two character sets to perform a direct mapping:
+- **Search set (`'A-Za-z'`):** Represents the complete standard alphabet.
+- **Replacement set (`'N-ZA-Mn-za-m'`):** Defines the new order. By writing `N-ZA-M`, I instruct the tool that the range must "wrap around": it starts at N, goes up to Z, and continues immediately from A to M.
+This way, each letter in the `data.txt` file was substituted by its corresponding counterpart 13 positions ahead, revealing the plaintext password.
+#### Key Takeaways
+How to map character ranges to shift the alphabet. I understood that ROT13 is reversible using the exact same command.
 #### Pass 12
 7x16WNeHIi5YkIhWsfFIqoognUTyj9Q4
 
