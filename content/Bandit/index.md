@@ -7,7 +7,7 @@ Welcome to my technical documentation for the Bandit wargame. This series focuse
 - **SSH Connection:** `ssh banditX@bandit.labs.overthewire.org -p 2220`
 ---- 
 ## 📝 Level Registry
-- [Level 0](./level-0)
+- [[Level 0]]
 - [Level-1](./level-1.md)
 - [Level 2](level-2.md)
 - [[Level-3]]
