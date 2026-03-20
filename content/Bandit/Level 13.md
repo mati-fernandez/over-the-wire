@@ -1,13 +1,13 @@
-#### Concepto
-Autenticación mediante **Llaves Privadas SSH** (Identity Files). El nivel exige mover la llave al entorno local porque el servidor bloquea el salto interno por `localhost`.
-#### Comandos clave
-- `scp -P 2220`: Para descargar archivos del servidor a la PC local.
-- `ssh -i`: Para loguearse usando un archivo de identidad en lugar de password.
-- **GUI de Windows (Seguridad)**: Para gestionar permisos NTFS (Deshabilitar herencia).
-#### Resolución
+#### Concept
+SSH Private Key Authentication (Identity Files). This level requires moving the key to a local environment because the server blocks internal jumps via localhost.
+#### Key Commands
+- `scp -P 2220`: Downloads files from the server to the local machine.
+- `ssh -i`: Logs in using an identity file instead of a password.
+- **Windows GUI (Security):** Managing NTFS permissions (Disabling inheritance).
+#### Walkthrough
 `scp -P 2220 bandit13@bandit.labs.overthewire.org:/home/bandit13/sshkey.private .`
-Descargué `sshkey.private` con `scp` (secure copy). Como Windows no procesa `chmod` igual que Linux, usé la **interfaz de Propiedades > Seguridad** del archivo para quitar la herencia y dejar solo a mi usuario con permisos de lectura. Luego, conecté desde mi terminal a `bandit14@bandit.labs.overthewire.org` por el puerto `2220`.
-#### Aprendizaje
-Aprendí que SSH rechaza llaves "expuestas" (con permisos compartidos). En Windows, esto se soluciona rompiendo la herencia de permisos en la GUI para que el archivo sea privado. También validé que el archivo `HINT` es clave cuando las reglas estándar del servidor cambian.
+I downloaded `sshkey.private` using `scp`. Since Windows doesn't handle `chmod` like Linux, I used the **Properties > Security** GUI to disable inheritance and grant "Read" permissions only to my user. Then, I connected to `bandit14@bandit.labs.overthewire.org` on port 2220.
+#### Key Takeaways
+I learned that SSH rejects "exposed" keys (those with shared permissions). In Windows, this is fixed by breaking permission inheritance in the GUI to ensure the file is private.
 #### Pass 14
 MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS
