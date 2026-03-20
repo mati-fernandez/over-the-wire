@@ -1,4 +1,0 @@
-- **Concepto:** Búsqueda avanzada de archivos basada en propiedades (tamaño, permisos, tipo). 
-- **Comandos clave:** `find . -type f -size 1033c ! -executable` 
-- **Resolución:** Dentro de `inhere` hay muchas carpetas. Usamos `find` con filtros específicos para ignorar archivos ejecutables y directorios, apuntando directamente al archivo de 1033 bytes. Luego hacemos el `cat` para traer su contenido. 
-- **Pass6:** HWasnPhtq9AVKe0dmk45nxy20cvUa6EG

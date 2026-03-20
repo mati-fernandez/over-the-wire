@@ -1,4 +1,0 @@
-- **Concepto:** Búsqueda global en el sistema de archivos filtrando por metadatos (Owner y Group) y manejo de flujos de error (`stderr`).
-- **Comandos clave:** `find / -user bandit7 -group bandit6 -size 33c 2>/dev/null`
-- **Resolución:** Buscamos desde la raíz (`/`) un archivo que cumpla con el trío de condiciones: dueño `bandit7`, grupo `bandit6` y tamaño exacto de `33 bytes`. Usamos `2>/dev/null` para silenciar los cientos de mensajes de "Permission denied" de las carpetas del sistema a las que no tenemos acceso, dejando solo la ruta del archivo correcta en pantalla. Luego `cat` al file.
-- **Pass7:** morbNTDkSW6jIlUc0ymOdMaLnOlFVAaj
