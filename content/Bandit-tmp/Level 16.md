@@ -21,5 +21,5 @@ I learned that `nmap` is only the first step; manual enumeration is what confirm
 #### Pass 17
 There is no password for this level. Access the `bandit17` server using the RSA key obtained:
 `ssh -i bandit17.key bandit17@bandit.labs.overthewire.org -p 2220`
-[RSA Key](bandit17.key)
+[RSA Key](Informática/Ciberseguridad/OverTheWire/content/Bandit-tmp/bandit17.key)
 
