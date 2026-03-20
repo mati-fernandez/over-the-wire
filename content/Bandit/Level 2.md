@@ -1,7 +1,3 @@
----
-title: Level 2
----
-
 - **Concept:** Handling filenames with spaces. Using quotes, escaping characters, or Tab-completion.
 - **Key Commands:**
 	- `cat "spaces in this filename"` (Quoting)
