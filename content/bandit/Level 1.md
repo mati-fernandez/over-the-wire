@@ -1,0 +1,7 @@
+- **Concept:** Reading files with special characters as names (Dashes).
+- **Key Commands:** `cat ./-`
+- **Walkthrough:** The password for the next level is stored in a file called `-` located in the home directory. Since many commands use `-` to represent standard input or output, you must specify the file's path (e.g., `./-`) to tell `cat` you are referring to a literal filename in the current directory.
+- **Key Takeaways:**
+	- Understanding how to handle filenames that conflict with command-line flags.
+	- Using relative paths (`./`) to disambiguate file targets in the shell.
+- **Pass2:** 263JGJPfgU6LtdEvgfWU1XP5yac29mFx

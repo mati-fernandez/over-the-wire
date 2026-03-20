@@ -1,0 +1,8 @@
+- **Concepto:** Hidden files (Dotfiles). In Unix-like systems, any file or directory starting with a dot `.` is treated as hidden and won't appear in a standard directory listing.
+- **Key Commands:** `ls -a` (The "all" flag forces the terminal to show everything, including hidden files and the `.` and `..` navigation directories).
+- **Walkthrough:** The password for the next level is located in a hidden directory named `inhere`. Navigating into it with `cd inhere` and running a simple `ls` returns no visible files. By using the command `ls -a`, the hidden file `.hidden` is revealed. Simply reading it with `cat .hidden` provides the key.
+- **Key Takeaways:**
+	- Understanding the convention of **Dotfiles** for configuration and sensitive data.
+	- Mastering `ls` flags (`-a`, `-l`, `-h`) to gain full visibility of the filesystem.
+	- Distinguishing between the current directory `.` and the parent directory `..`.
+- **Pass4:** 2WmrDFRmJIq3IPxneAaMGhap0pFhF3NJ
