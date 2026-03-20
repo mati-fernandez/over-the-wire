@@ -1,5 +1,5 @@
 # Over The Wire Writeups
 ## Server
-- [[bandit/index|bandit]]
+- [[TMP_bandit/index|bandit]]
 - [[natas/index|natas]]
 - 
