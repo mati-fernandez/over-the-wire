@@ -1,12 +1,12 @@
-#### Concepto
-Filtrado de líneas únicas mediante el ordenamiento previo de datos.
-#### Comandos clave
+#### Concept
+Filtering unique lines by pre-sorting data.
+#### Key Commands
 `sort data.txt | uniq -u`
-#### Resolución
-El archivo `data.txt` tiene miles de líneas. Como `uniq` solo compara líneas adyacentes, primero usamos `sort` para agrupar todas las líneas idénticas. Luego, usamos `uniq -u` para descartar todas las que tengan duplicados, dejando únicamente la contraseña que aparece una sola vez.
-#### Aprendizaje
-- **`sort`**: Indispensable antes de usar `uniq`.
-- **`uniq -u`**: Devuelve solo lo que no tiene copias (Unique).
-- **`uniq -c`**: (Tip extra) Cuenta cuántas veces aparece cada línea.
+#### Walkthrough
+The `data.txt` file contains thousands of lines, and the password is the only line that occurs exactly once. Since the `uniq` command only compares **adjacent** lines, we must first use `sort` to group identical lines together. Then, we pipe the output to `uniq -u` to discard all duplicates and display only the unique entry.
+#### Key Takeaways
+- **`sort`**: An indispensable prerequisite before using `uniq`.
+- **`uniq -u`**: Returns only lines that have no copies (truly unique).
+- **`uniq -c`**: (Extra Tip) A useful flag to count the occurrences of each line, often used in log analysis to find the most frequent events.
 #### Pass 9
 4CKMh1JI91bUIZZPXDqGanal4xvAg0JM
