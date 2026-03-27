@@ -6,7 +6,7 @@ Welcome to my personal cybersecurity laboratory. This repository contains detail
 
 ## 🌐 Live Portfolio
 Explore the interactive version of these notes with a full knowledge graph:
-👉 **[mi-portfolio-otw.vercel.app](https://otw.vercel.app)** 🚀
+👉 **[here](https://mati-fernandez.github.io/over-the-wire/)** 🚀
 
 ---
 
