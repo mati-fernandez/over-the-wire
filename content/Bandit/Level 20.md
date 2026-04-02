@@ -12,7 +12,7 @@
 For this challenge, I used a dual-session SSH approach to separate system responsibilities:
 1. **Server Terminal:** Created a temporary file with the L20 password and set `nc` to listen on port 12345: `echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" > /tmp/p20` `nc -l -p 12345 < /tmp/p20`
 2. **Client Terminal:** In a parallel session, I ran the binary: `./suconnect 12345` The binary successfully connected to the `nc` server, received the password, validated it internally (thanks to its SETUID permissions), and returned the [[Informática/Ciberseguridad/OverTheWire/content/Bandit/Level 21]] credential.
->You could also use [[Job Control]] to manage the server in the background and use a single terminal.
+>You could also use Job Control to manage the server in the background and use a single terminal.
 #### Key Takeaways
 I learned that Inter-Process Communication (IPC) via network is extremely useful when a program needs external data for security validation. I also understood the operational difference between a process that "listens" (server) and one that "connects" (client). Using **Job Control** allows managing multiple tasks in a single interactive shell, turning a process into a background daemon using the `&` symbol.
 
