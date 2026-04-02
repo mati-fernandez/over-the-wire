@@ -1,5 +1,10 @@
 {
-  "recentFiles": [],
+  "recentFiles": [
+    {
+      "basename": "index",
+      "path": "content/Natas/index.md"
+    }
+  ],
   "omittedPaths": [],
   "omittedTags": [],
   "updateOn": "file-open",

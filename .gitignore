@@ -12,3 +12,4 @@ replit.nix
 .obsidian/last-sync.json
 *.sync-conflict-*
 Thumbs.db
+.obsidian/plugins/recent-files-obsidian/data.json
