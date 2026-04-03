@@ -2,4 +2,4 @@
 ## Server
 - [[Bandit/index|Bandit]]
 - [[content/Natas/index|Natas]]
-- probando desde pc
+- probando subida desde mobile 
