@@ -2,4 +2,4 @@
 ## Server
 - [[Bandit/index|Bandit]]
 - [[content/Natas/index|Natas]]
-- probando subida desde mobile 
+- Probando 3 de abril desde mobile 
