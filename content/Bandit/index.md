@@ -8,7 +8,7 @@ Welcome to my technical documentation for the Bandit wargame. This series focuse
 ---- 
 ## 📝 Level Registry
 - [[Level 0]]
-- [[Level 1]]
+- [[content/Bandit/Level 1]]
 - [[Level 2]]
 - [[Level 3]]
 - [[Level 4]]
