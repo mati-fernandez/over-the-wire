@@ -9,6 +9,7 @@ private/
 replit.nix
 
 .obsidian/workspace.json
+.obsidian/workspace-mobile.json
 .obsidian/last-sync.json
 *.sync-conflict-*
 Thumbs.db
