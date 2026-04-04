@@ -8,7 +8,7 @@ Welcome to my technical documentation for the Natas wargame. This series focuses
 - **Environment:** WSL (Windows Subsystem for Linux)
 
 ## 📝Level Registry
-* Level 0
+* [[Level 0]]
 - Level 1 
 - Level 2
 - Level 3
