@@ -1,6 +1,6 @@
 {
-  "findText": "- Level\\s(\\d+)",
-  "replaceText": "- [[content/Natas/Level $1|Level $1]]",
+  "findText": "\\|.+",
+  "replaceText": "]]",
   "useRegEx": true,
   "selOnly": false,
   "caseInsensitive": false,
