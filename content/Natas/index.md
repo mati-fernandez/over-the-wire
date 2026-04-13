@@ -1,3 +1,7 @@
+---
+title: Natas
+---
+
 ## 🚩 OverTheWire: Natas Writeups
 Welcome to my technical documentation for the Natas wargame. This series focuses on **web security**, server-side vulnerabilities, and common web application flaws.
 

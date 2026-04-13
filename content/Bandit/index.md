@@ -1,3 +1,7 @@
+---
+title: Bandit
+---
+
 # 🚩 OverTheWire: Bandit Writeups 
 Welcome to my technical documentation for the Bandit wargame. This series focuses on Linux fundamentals, CLI proficiency, and basic security concepts. 
 ## 🛠️ Tools & Shortcuts
