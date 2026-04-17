@@ -1,6 +1,6 @@
 {
-  "findText": "\\|.+",
-  "replaceText": "]]",
+  "findText": "/Natas",
+  "replaceText": "Natas",
   "useRegEx": true,
   "selOnly": false,
   "caseInsensitive": false,
