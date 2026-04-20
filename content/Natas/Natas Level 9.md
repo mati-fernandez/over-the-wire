@@ -6,7 +6,7 @@ This vulnerability occurs when an application takes user input and embeds it int
 - **`ls`:** List directory contents (used for reconnaissance).
 - **`cat`:** Standard Unix utility to read and display file contents.
 #### Walkthrough / Resolution
-- - **Reconnaissance:** Tested the injection by entering `; ls`. The server returned a list of files, confirming that shell commands could be executed.
+- **Reconnaissance:** Tested the injection by entering `; ls`. The server returned a list of files, confirming that shell commands could be executed.
 - **Information Gathering:** Used `; ls /etc/natas_webpass/` to verify the existence of the password files.
 - **Exploitation:** Injected a command to read the target file.
 - **Payload:** `; cat /etc/natas_webpass/natas10 ; ""`
