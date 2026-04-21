@@ -19,3 +19,19 @@ Explore the interactive version of these notes with a full knowledge graph:
 - **Quartz**: Static site generator for specialized documentation.
 - **Obsidian Git**: For automated version control and synchronization.
 - **Vercel**: For automated CI/CD deployment.
+
+## 🚀 Local Development
+To run this project locally using Git Bash or WSL:
+
+1. **Install dependencies**:
+```bash
+pnpm install
+```
+Launch development server:
+
+```Bash
+pnpm quartz build --serve
+```
+> Note: If you are on Windows/Git Bash, ensure the quartz script in package.json points to "node quartz/bootstrap-cli.mjs".
+
+
