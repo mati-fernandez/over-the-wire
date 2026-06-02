@@ -23,6 +23,8 @@ Welcome to my technical documentation for the Natas wargame. This series focuses
 - [[Natas Level 9]]
 - [[Natas Level 10]]
 - [[Natas Level 11]]
-- [[Natas Level 12
+- [[Natas Level 12]]
 - [[Natas Level 13]]
 - [[Natas Level 14]]
+- [[Natas Level 15]]
+- 
