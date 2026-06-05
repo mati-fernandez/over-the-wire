@@ -1,4 +1,4 @@
-## Analizing [[Level 23]] script from Over The Wire
+## Analizing [[Bandit Level 23]] script from Over The Wire
 `bandit23@bandit:/etc/cron.d$ cat /usr/bin/cronjob_bandit24.sh`
 ```bash
 #!/bin/bash
