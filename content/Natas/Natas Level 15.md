@@ -11,7 +11,7 @@ This vulnerability occurs when an application is susceptible to SQL Injection bu
     $query = "SELECT * from users where username=\"".$_REQUEST["username"]."\"";
     ```
     The backend only reports if rows were found (`This user exists.`) or not (`This user doesn't exist.`), discarding actual row values from the HTTP response.
-- **Formulate the Interrogation Logic**: To bypass manual extraction of a 32-character password, a custom Node.js automation script ([[exploit.js]]) was crafted.
+- **Formulate the Interrogation Logic**: To bypass manual extraction of a 32-character password, a custom Node.js automation script ([[exploit15.js]]) was crafted.
 - **Inject the Boolean Payload**: The script systematically appended characters from a standard alphanumeric alphabet (`charset`) and checked the server's boolean response using the following pattern:
     ```sql
     natas16" AND password LIKE BINARY "accumulated_chars + testing_char%
