@@ -34,3 +34,4 @@ Welcome to my technical documentation for the Natas wargame. This series focuses
 - [[Natas Level 20]]
 - [[Natas Level 21]]
 - [[Natas Level 22]]
+- [[Natas Level 23]]
