@@ -6,5 +6,8 @@
   "page-scroll",
   "recent-files-obsidian",
   "obsidian-regex-replace",
-  "templater-obsidian"
+  "templater-obsidian",
+  "header-adjuster",
+  "cmdr",
+  "find-n-replace"
 ]

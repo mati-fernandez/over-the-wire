@@ -1,6 +1,6 @@
 {
-  "findText": "/Natas",
-  "replaceText": "Natas",
+  "findText": "^\\s*\\n(?!---)(?!\\|\\s)",
+  "replaceText": "",
   "useRegEx": true,
   "selOnly": false,
   "caseInsensitive": false,

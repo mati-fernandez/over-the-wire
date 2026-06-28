@@ -4,5 +4,6 @@
   "attachmentFolderPath": "./",
   "newLinkFormat": "shortest",
   "strictLineBreaks": false,
-  "newFileFolderPath": "content"
+  "newFileFolderPath": "content",
+  "promptDelete": false
 }

@@ -7,7 +7,6 @@
       "key": "S"
     }
   ],
-  "editor:save-file": [],
   "obsidian-regex-replace:obsidian-regex-replace": [
     {
       "modifiers": [
@@ -15,6 +14,33 @@
         "Shift"
       ],
       "key": "H"
+    }
+  ],
+  "editor:save-file": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ],
+  "cmdr:open-commander-settings": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "C"
+    }
+  ],
+  "editor:toggle-source": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "E"
     }
   ]
 }
