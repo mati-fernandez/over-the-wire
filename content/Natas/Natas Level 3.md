@@ -1,15 +1,27 @@
-#### Concept
-**Security through Obscurity & Robots.txt Misconfiguration.** Relying on `robots.txt` to hide directories is a common mistake. Since the file must be world-readable for bots to see it, it also serves as a map for attackers to find hidden or sensitive areas of a site.
-#### Key Commands
-- **Direct URL access:** `base-url/robots.txt`
-- **Directory Traversal:** Accessing the paths listed in the `Disallow` directive.
-#### Walkthrough / Resolution
-- Navigated to `/robots.txt`.
-- Found a `Disallow` entry pointing to a hidden directory.
-- Accessed that directory via the browser.
-- Found a text file containing the password for `natas4`.
-#### Key Takeaways / Lessons Learned
-- `robots.txt` is **not** a security mechanism.
-- Sensitive directories should be protected by authentication or kept outside the web root, not just "hidden" from search engines.
+#### Summary
+Sensitive files were exposed through a publicly accessible directory referenced in `robots.txt`.
+#### Target
+The `robots.txt` file and publicly accessible web directories.
+#### Exploit
+1. Authenticate using the provided credentials.
+2. Inspect the `robots.txt` file.
+3. Discover the hidden `/s3cr3t/` directory.
+4. Browse the directory and open the `users.txt` file.
+5. Retrieve the password for the next level.
+#### Payloads / Commands
+```bash
+curl -u natas3:<password> http://natas3.natas.labs.overthewire.org/robots.txt
+curl -u natas3:<password> http://natas3.natas.labs.overthewire.org/s3cr3t/users.txt
+```
+Browser:
+* `/robots.txt`
+* `/s3cr3t/users.txt`
+#### Why it works
+The `robots.txt` file is publicly accessible and intended to guide search engine crawlers. It does not enforce access control, so anyone can read it and discover hidden directories.
+#### Takeaways
+* `robots.txt` should never be used to hide sensitive resources.
+* Hidden or unlinked directories are not secure.
+* Always inspect common discovery files during web reconnaissance (`robots.txt`, `sitemap.xml`, etc.).
 #### Pass 4
-QryZXc2e0zahULdHrtHxzyYkj59kUxLQ
+JDrPnuZAKyl6MkiqQGFIddrqpvgOASth
+
