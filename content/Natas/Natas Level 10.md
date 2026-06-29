@@ -1,5 +1,5 @@
 #### Summary
-User input is passed directly to `grep` without proper escaping. Although some shell metacharacters are blacklisted, additional **arguments** can still be injected into the command, resulting in **Argument Injection**.
+User input is passed directly to [[grep]] without proper escaping. Although some shell metacharacters are blacklisted, additional **arguments** can still be injected into the command, resulting in **Argument Injection**.
 #### Target
 The `needle` query parameter, which is concatenated into:
 ```php
@@ -36,4 +36,4 @@ Related notes:
 - Understanding how a CLI tool parses its arguments is often enough to discover an exploit.
 - Always escape user input (e.g., `escapeshellarg()` in PHP) or avoid invoking the shell entirely.
 #### Pass 11
-<% tp.file.cursor(2) %>
+VUMQDmuITOEHzhviLE5V0VG9cPMQkyxd
