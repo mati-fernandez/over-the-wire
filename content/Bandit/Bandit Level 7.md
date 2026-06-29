@@ -1,5 +1,5 @@
 #### Concept
-Searching for specific strings within a large text file using **grep**.
+Searching for specific strings within a large text file using [[grep]].
 #### Comandos clave
 `grep "millionth" data.txt`
 #### Walkthrough

@@ -1,6 +1,7 @@
 #### Concept
 **Brute-Force Attack:** Automating exhaustive testing across a space of possibilities (0000-9999) to exploit an authentication weakness that lacks rate limiting.
 #### Key Commands
+- [[grep]]
 - **`{0000..9999}`**: Bash brace expansion to generate sequences with leading zeros. 
 - **`nc localhost [port]`**: Establishes a TCP connection to send and receive data.
 - **`grep -v "string"`**: Filters output to hide noise and show only the successful result.

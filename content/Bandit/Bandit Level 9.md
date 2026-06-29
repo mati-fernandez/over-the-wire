@@ -2,7 +2,7 @@
 Extracting human-readable data from **binary files** (non-plain text). The goal is to filter out "noise" or machine code to find printable character strings, using visual patterns (like `=`) as a guide.
 #### Key Commands
 - `strings`: Scans a file and returns only sequences of printable characters.
-- `grep`: Searches for specific patterns within the command output.
+- [[grep]]: Searches for specific patterns within the command output.
 - `|` (Pipe): Connects the output of one command to the input of the next.
 #### Walkthrough
 `strings data.txt | grep "=="` 
