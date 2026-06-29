@@ -1,5 +1,5 @@
 #### Concept
-Forensic file analysis and multi-layered decompression (Matryoshka). The challenge involves identifying binary data types hidden within a hex dump and multiple compression algorithms.
+Forensic file analysis and multi-layered decompression (Matryoshka). The challenge involves identifying binary data types hidden within a [[hex dump]] and multiple compression algorithms.
 #### Key Commands
 - `mktemp -d`: To create a temporary directory in the host server's `/tmp` folder.
 - `xxd -r`: To reverse a hex dump back into binary format.

