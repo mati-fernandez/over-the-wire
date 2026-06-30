@@ -1,5 +1,5 @@
 {
-  "findText": "^\\s*\\n(?!---)(?!\\|\\s)",
+  "findText": "^\\s*\\n(?!---)(?!\\|[\\s\\w]+)",
   "replaceText": "",
   "useRegEx": true,
   "selOnly": false,

@@ -1,22 +1,34 @@
-#### Concept
-**PHP Session Forgery via XOR Encryption Oracle.**
-This level demonstrates how relying on client-side cookies for security is dangerous, especially when using a reversible cipher like XOR with a fixed key. If an attacker knows the original plaintext and the resulting ciphertext, they can recover the secret key and forge their own data.
-#### Key Commands
-- **`XOR (^)`**: A logical operation where $A \oplus B = C$. It is reversible: $A \oplus C = B$.
-- **`JSON & Base64`**: The data format used to store the state in the cookie.
-- **`atob() / btoa()`**: JavaScript functions to decode and encode Base64 strings.
-#### Walkthrough / Resolution
-- **Analyze the Source**: The PHP code reveals that the data is stored in a cookie called `data`. The process is: `JSON -> XOR (with secret key) -> Base64`.
-- **Identify the Plaintext**: The default data is known: `{"showpassword":"no","bgcolor":"#ffffff"}`.
-- **Recover the Key**: Since $Plaintext \oplus Ciphertext = Key$, I took the cookie value from the browser, decoded it from Base64, and performed an XOR operation against the known JSON string. This revealed the repeating key: `eDWo`.
-- **Forge the Cookie**:
-    - Created a new JSON string: `{"showpassword":"yes","bgcolor":"#ffffff"}`.
-    - Encrypted it using XOR with the recovered key `eDWo`.
-    - Encoded the result in Base64.
-- **Injection**: Replaced the `data` cookie in the browser with the forged string and refreshed the page. The server decrypted the forged cookie, saw `"showpassword":"yes"`, and displayed the password.
-#### Key Takeaways / Lessons Learned
-- **Never trust client-side data**: Even if encrypted, if the algorithm is weak or the key is recoverable, the data can be tampered with.
-- **XOR is not encryption**: Without a unique, random, and secret key for every single message (One-Time Pad), XOR is easily breakable if the attacker knows or can guess part of the plaintext.
-- **Server-side state**: Sensitive flags like `showpassword` should always be stored on the server (e.g., in a secure database or server-side session), never sent to the user's browser.
+#### Summary
+The application stores user preferences inside a cookie protected with **repeating-key XOR** and Base64 encoding. Since part of the plaintext is known, the XOR key can be recovered (**Known Plaintext Attack**). The cookie can then be forged with `"showpassword":"yes"` to reveal the next password.
+#### Target
+- `data` cookie (user-controlled)
+- `loadData()`
+- `xor_encrypt()`
+- `json_decode()`
+#### Exploit
+1. Capture the `data` cookie.
+2. URL-decode and Base64-decode it.
+3. Recover the repeating XOR key using the known JSON plaintext.
+4. Forge a new cookie with `"showpassword":"yes"`.
+5. Replace the original cookie and refresh the page.
+#### Payloads / Commands
+Recover the XOR key:
+```
+Key: kBSw
+```
+Scripts:
+- [[exploit11#recover-key.js]]
+- [[exploit11#forge-cookie.js]]
+#### Why it works
+The application encrypts a client-controlled cookie using **repeating-key XOR**, which is vulnerable to a **Known Plaintext Attack**. Since the cookie's JSON structure is predictable, the XOR key can be recovered by XORing the ciphertext with the known plaintext. The recovered key can then be used to forge arbitrary cookie contents.
+#### Real-world Notes
+- Repeating-key XOR provides no integrity and is vulnerable to known-plaintext attacks.
+- Sensitive client-side data should be authenticated (e.g., HMAC or authenticated encryption), not simply encrypted.
+- Modern applications typically store sensitive state server-side or use authenticated tokens.
+#### Takeaways
+- Repeating-key XOR is insecure for protecting client-controlled data.
+- Base64 is only an encoding layer.
+- Always analyze the complete data transformation pipeline (URL Encoding → Base64 → XOR → JSON).
+- Predictable plaintext can completely break weak encryption schemes.
 #### Pass 12
-yZdkjAYZRd3R7tq7T5kXMjMJlOIkzDeB
+EAGkE8uzFTxeoTT2mMst9Xy7PX6guEng
