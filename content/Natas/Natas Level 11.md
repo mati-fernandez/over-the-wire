@@ -23,7 +23,7 @@ Scripts:
 The application encrypts a client-controlled cookie using **repeating-key XOR**, which is vulnerable to a **Known Plaintext Attack**. Since the cookie's JSON structure is predictable, the XOR key can be recovered by XORing the ciphertext with the known plaintext. The recovered key can then be used to forge arbitrary cookie contents.
 #### Real-world Notes
 - Repeating-key XOR provides no integrity and is vulnerable to known-plaintext attacks.
-- Sensitive client-side data should be authenticated (e.g., HMAC or authenticated encryption), not simply encrypted.
+- Sensitive client-side data should be authenticated (e.g., [[HMAC]] or authenticated encryption), not simply encrypted.
 - Modern applications typically store sensitive state server-side or use authenticated tokens.
 #### Takeaways
 - Repeating-key XOR is insecure for protecting client-controlled data.

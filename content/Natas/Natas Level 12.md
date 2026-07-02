@@ -1,21 +1,37 @@
-#### Concept
-**Arbitrary File Upload via Client-Side Extension Manipulation.**
-This vulnerability occurs when a web server allows users to upload files without validating their content type on the server side, while relying on a client-supplied hidden parameter to determine the final file extension.
-#### Key Commands
-- **`shell_exec()`**: A PHP function used to execute arbitrary commands via the host shell and return the complete output as a string.
-- **`DevTools`**: Used to modify hidden HTML form inputs before submission.
-#### Walkthrough / Resolution
-- **Analyze the Form**: The application features a file upload mechanism. By inspecting the DOM using DevTools, a hidden input field named `filename` was discovered with a default value ending in `.jpg`.
-- **Craft the Dynamic Payload**: Created a local file containing a flexible web shell:
+#### Summary
+The application allows users to upload files and determines the destination file extension from a **user-controlled hidden form field** (`filename`). Because the server does not validate the extension or the file contents, an attacker can upload a PHP script and execute arbitrary code.
+#### Target
+- `$_FILES['uploadedfile']`
+- `$_POST['filename']`
+- `makeRandomPathFromFilename()`
+- `move_uploaded_file()`
+#### Exploit
+- Intercept the upload request.
+- Change the hidden `filename` parameter from `*.jpg` to `*.php`.
+- Upload a PHP payload.
+- Open the uploaded file from the generated `/upload/` path.
+- Execute PHP code to read `/etc/natas_webpass/natas13`.
+#### Payloads / Commands
 ```php
-	<?php echo shell_exec($_GET['cmd']); ?>
+<?php
+echo file_get_contents("/etc/natas_webpass/natas13");
+?>
 ```
- >	Analysis of the script: `$_GET['cmd']` intercepts any input passed via the URL query string parameter `?cmd=`. This input is fed directly into `shell_exec()`, which runs it on the server operating system.
-- **Bypass Restrictions**: Modified the hidden `<input type="hidden" name="filename" value="...">` field in the browser, changing the extension from `.jpg` to `.php`.
-- **Execution**: Uploaded the file. Because the server trusts the hidden field to append the extension, it saved it as an executable `.php` file.
-- **Command Execution**: Navigated to the generated upload link. To extract the password, the request was appended with the specific payload in the URL: `?cmd=cat /etc/natas_webpass/natas13`.
-#### Key Takeaways / Lessons Learned
-- **The Power of Dynamic Web Shells**: Using `_GET['cmd']` transforms a static exploit into a reusable administration tool. Instead of uploading a new file for every action, this pattern keeps the backend backdoor open for any future shell commands (`ls`, `whoami`, etc.).
-- **Never trust hidden inputs**: Attackers can easily modify any client-side data (hidden fields, cookies, select options) before it hits the server.
+#### Why it works
+The application trusts a client-controlled parameter (`filename`) to determine the file extension. Since the upload directory is web-accessible and PHP files are executed by the server, uploading a PHP script results in **Remote Code Execution ([[RCE]])**.
+#### Real-world Notes
+- File upload vulnerabilities remain one of the most common web application flaws.
+- Real applications often validate extensions, MIME types, or magic bytes, but misconfigurations and incomplete validation are still frequently exploitable.
+- During a penetration test, file upload functionality is always considered a high-value attack surface. Typical tests include changing the filename extension, MIME type, request headers, and file contents to determine whether server-side validation can be bypassed.
+- Secure implementations should:
+    - Ignore client-provided filenames.
+    - Generate server-side filenames and safe extensions.
+    - Store uploads outside the web root whenever possible.
+    - Disable script execution inside upload directories.
+#### Takeaways
+- Never trust client-controlled metadata, including hidden form fields.
+- Client-side restrictions provide no security.
+- File uploads should always be validated server-side.
+- Allowing uploaded files to be executed by the web server can lead directly to RCE.
 #### Pass 13
-trbs5pCjCrkuSknBBKHhaBxq6Wm1j3LC
+g8ba0olAzaSJuyS4gnmbdVVigAICLG1k
