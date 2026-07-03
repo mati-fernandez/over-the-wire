@@ -20,7 +20,7 @@ Command breakdown:
 * `echo` prints the encoded secret to standard output.
 * `|` pipes the output of one command into the next.
 * `xxd`
-	* `-r` (**reverse**) converts a [[hex dump]] back into binary.
+	* `-r` (**reverse**) converts a [[hexdump]] back into binary.
 	* `-p` (**plain**) expects a plain hexadecimal string without offsets or formatting.
 * `rev` reverses the character order of each input line.
 * `base64`

@@ -1,19 +1,37 @@
-#### Concept
-**Magic Bytes Validation Bypass (MIME-Type Spoofing).**
-An upgrade to the previous level where the server implements server-side validation using `exif_imagetype()`. This function checks the initial bytes of a file (signatures/magic bytes) to verify if it's a real image, but fails to prevent execution if valid PHP code follows the fake header.
-#### Key Commands
-- **`file_get_contents()`**: Reads the entire contents of a file into a string. Cleaner and faster than spawning a system shell when only file reading is required.
-- **`echo`**: Used locally in the terminal to concatenate the image signatures and the payload into a single file.
-#### Walkthrough / Resolution
-- **Analyze the Restriction**: Uploading the dynamic shell from Level 12 fails because the server now inspects file headers to ensure they match an image format.
-- **Craft the Static Payload**: Since we only need to read a single file and speed up execution, a static approach was chosen to bypass filters cleanly:
-    ```php
-	GIF89a <?php echo file_get_contents('/etc/natas_webpass/natas14'); ?>
-    ```
-    - _Analysis of the script:_ `GIF89a` represents the standard header magic bytes for a GIF image. When `exif_imagetype()` reads the file, it detects this signature and validates it as an image. When the web server's PHP interpreter hits the file, it ignores the plaintext header string and executes the `file_get_contents()` function directly, outputting the password immediately without requiring extra URL parameters.
-- **Bypass and Execution**: Just like the previous level, the hidden `filename` input in the HTML form was altered to ensure a `.php` extension. The file was uploaded, and navigating to the link exposed the flag.
-#### Key Takeaways / Lessons Learned
-- **Dynamic vs. Static Exploitation**: While the dynamic web shell used in Level 12 provides a flexible remote access channel, a static payload containing a simple `file_get_contents()` is more efficient for bypassing restrictive environments, generating less noise on the server logs and executing instantaneously.
-- **Header validation is insufficient**: Inspecting only the magic bytes or MIME-type signatures allows attackers to inject malicious code inside valid file structures. True security requires disabling execution permissions inside upload directories.
-#### Pass 14
-z3UYcr4v4uBpeX8f7EZbMHlzK4UR2XtQ
+### Summary
+Bypassed server-side image validation by prepending valid GIF [[Magic Bytes]] to a PHP payload. Although the server verified the uploaded file with `exif_imagetype()`, it still stored the file with a `.php` extension and executed it.
+### Target
+The application validates uploaded files using `exif_imagetype()`, which only checks the file signature (magic bytes). It still trusts the client-controlled `filename` parameter to determine the final extension.
+### Exploit
+1. Inspect the source code.
+2. Notice the new validation:
+   ```php
+   exif_imagetype($_FILES['uploadedfile']['tmp_name'])
+   ```
+3. Craft a polyglot payload beginning with the GIF signature:
+   ```php
+   GIF89a
+   <?php echo file_get_contents('/etc/natas_webpass/natas14'); ?>
+   ```
+4. Use DevTools to change the hidden `filename` field from `.jpg` to `.php`.
+5. Upload the file.
+6. Open the generated URL to execute the PHP code and retrieve the password.
+### Payloads / Commands
+```php
+GIF89a
+<?php echo file_get_contents('/etc/natas_webpass/natas14'); ?>
+```
+### Why it works
+`exif_imagetype()` only inspects the first bytes of the file to identify its format. Since the payload starts with the valid GIF signature (`GIF89a`), the validation succeeds.
+Later, when the uploaded file is requested, the web server executes it as PHP because it was saved with a `.php` extension. The `GIF89a` header is treated as plain output until the interpreter reaches the `<?php` tag.
+### Real-world Notes
+- Validating only magic bytes or MIME types is insufficient to secure file uploads.
+- Upload directories should not allow execution of server-side scripts.
+- The server should generate its own filename and extension instead of trusting client-controlled metadata.
+- Modern applications often combine extension validation, MIME detection, magic-byte inspection, and storage outside the web root to mitigate arbitrary file upload vulnerabilities.
+### Takeaways
+- File signature validation alone does not guarantee that a file is safe.
+- The file extension ultimately determines how the web server processes the uploaded file.
+- A single file may be interpreted differently by different programs (e.g., as an image validator and as a PHP script), enabling upload bypasses.
+### Pass 14
+A0xXu2x9FW8rb8OSQ4ei6n5VBbLUz8h8
